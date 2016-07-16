@@ -36,7 +36,7 @@ export PATH=/installpath:$PATH
 
 ![example](./example.png)
 
-※-f をつけて(´･ω･`)
+※細かい設定する時は-f をつけて!
 1. -h help
 2. -f filename
 v filenameでも実行できるが指定すると以下の細かい設定ができる
