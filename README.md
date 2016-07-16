@@ -34,9 +34,12 @@ export PATH=/installpath:$PATH
  
 ###v
 
+![example](./example.png)
+
+※-f をつけて(´･ω･`)
 1. -h help
 2. -f filename
-v filenameでも実行できるが指定すると細かい設定ができる
+v filenameでも実行できるが指定すると以下の細かい設定ができる
 3. -l
 つけるだけで行番号を消せる
 4. -ln
