@@ -12,6 +12,9 @@ import (
 )
 
 func allShow(filename string) {
+    /******************************************************
+    指定されたファイルを開き、全て標準出力する
+    *******************************************************/
     file, err := ioutil.ReadFile(filename)
     if err != nil {
         // エラー処理
@@ -22,6 +25,11 @@ func allShow(filename string) {
 }
 
 func lineShow(filename string, start , end int,line bool) {
+    /******************************************************
+    指定されたファイルを開き条件に応じて標準出力する
+    os.Stdout.Write([]byte("\033[38;5;39m"+sc.Text()+"\033[0m \n"))
+    39mのところをcolor.goより得れる値に変えてやると自分好みの色に変更出来る
+    *******************************************************/
     file, err := os.Open(filename)
     if err != nil {
         // エラー処理
@@ -61,11 +69,20 @@ func lineShow(filename string, start , end int,line bool) {
     }
 }
 func space(i int) string{
+    /*************************************
+    行番号の桁に合わせて空白文字数を変える
+    **************************************/
     ori := strconv.Itoa(i)
     return strings.Repeat(" ",(6-len(ori)))+ori
 }
 
 func insertString(filename, str string,col ,row int,line ,rp bool){
+    /******************************************************
+    指定されたファイルを開き条件に応じて標準出力する
+    os.Stdout.Write([]byte("\033[38;5;39m"+sc.Text()+"\033[0m \n"))
+    39mのところをcolor.goより得れる値に変えてやると自分好みの色に変更出来る
+    指定されたcol番号の所で文字処理を行い、文字列を挿入する
+    *******************************************************/
     file, err := os.Open(filename)
     if err != nil {
         // エラー処理
@@ -137,7 +154,7 @@ func insertString(filename, str string,col ,row int,line ,rp bool){
   - 全部表示
   - start,endを指定し表示
 ##カット機能
-  - start,endを指定しカット
+  - start,endを指定しカット表示
 ##追加機能
   - 指定した行数のあとに追加する
 */
@@ -177,8 +194,6 @@ func main() {
     }
     lineShow(*filename,*start,*end,*line)
 }
-
-
 
 
 
