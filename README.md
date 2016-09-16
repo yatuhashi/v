@@ -26,8 +26,10 @@ go build v.go
 
 ##How to install
 
-``` 
-export PATH=/installpath:$PATH 
+setting GOPATH, GOROOT
+
+```
+go get github/yatuhashi/v/cmd/v
 ```
 
 ##How to use
