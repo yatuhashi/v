@@ -169,7 +169,7 @@ func main() {
 	col := flag.Int("c", 0, "help message for insert col num(int)")
 	row := flag.Int("r", 0, "help message for insert row num(int)")
 	start := flag.Int("s", 0, "help message for line start num(int)")
-	end := flag.Int("e", 65, "help message for line end num(int)")
+	end := flag.Int("e", 0, "help message for line end num(int)")
 	flag.Parse()
 
 	if *filename == "false" {
@@ -179,11 +179,17 @@ func main() {
 		}
 		*filename = flag.Args()[0]
 	}
+
 	if *line && !*lnum {
 		color.Green("0123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789\n")
 	} else if !*lnum {
 		color.Green("        0123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789\n")
 	}
+    //end が指定されていなければstartから換算してだす
+    if *end == 0 {
+        *end = *start + 65
+    }
+
 	if len(*insert) >= 1 {
 		insertString(*filename, *insert, *col, *row, *line, *rp)
 		return
